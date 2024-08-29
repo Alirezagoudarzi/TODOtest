@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for todos in all  %}
+
+ <a href="{% url "detail" todos.id %}">{{todos.title}}<br></a>
+
+{% endfor %}
+
+
+{% endblock content %}
