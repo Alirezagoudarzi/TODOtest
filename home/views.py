@@ -32,7 +32,12 @@ def create(request):
     return render(request,'create.html',{'form':form})
 
         
-
+def delete(request,todo_id):
+    todo=TODO.objects.get(id=todo_id)
+    TODO.objects.get(id=todo_id).delete()
+    msg='Todo \''+todo.title+'\' delete Successfully'
+    messages.success(request,msg,'success')
+    return redirect('home')
 
 
 
