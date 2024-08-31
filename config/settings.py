@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # locals app
     'home',
+    'accounts'
 ]
 
 MIDDLEWARE = [

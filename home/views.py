@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import TODO
-from .forms import CreateTodoForms
+from .forms import CreateTodoForms,UpdateTodoForm
 from django.contrib import messages
 # from django.contrib import messages
 
@@ -38,6 +38,26 @@ def delete(request,todo_id):
     msg='Todo \''+todo.title+'\' delete Successfully'
     messages.success(request,msg,'success')
     return redirect('home')
+
+
+def update(request,todo_id):
+    todo=TODO.objects.get(id=todo_id)
+
+    if request.method=='POST':
+        form=UpdateTodoForm(request.POST,instance=todo)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Update done!','success')
+            # return redirect('home')
+            return redirect('details',todo_id)
+
+    else:
+        form=UpdateTodoForm(instance=todo)
+
+    return render (request,'update.html',{'form':form})
+    
+
+
 
 
 

@@ -9,11 +9,9 @@
 <hr>
  
 <a href='{% url "delete" todo.id %}' class="btn btn-danger">Delete</a>
+<a href='{% url "update" todo.id %}' class="btn btn-primary">Update</a>
 
-{% comment %} <a href="{% url "delete" todo_id.id %}">Delete</a> {% endcomment %}
-{% comment %} <button type="button" class="btn btn-primary" onclick="location.href='https://www.google.com';"=>Delete</button> {% endcomment %}
 
-{% comment %} <a href="{% url "deletes" todo_id.id %}">Delete</a> {% endcomment %}
 
 {% endblock content %}
 
